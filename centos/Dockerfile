@@ -1,2 +1,4 @@
 FROM centos:latest
-CMD ["/bin/bash"]
+RUN useradd artak
+RUN echo "artak:artak123" | chpasswd
+
