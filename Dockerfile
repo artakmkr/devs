@@ -3,4 +3,4 @@ FROM ubuntu:latest
 RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1000 test
 RUN  echo 'test:test' | chpasswd
 #RUN service ssh start
-CMD ["bash"]
+CMD ["/bin/bash"]
