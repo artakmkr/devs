@@ -1,4 +1,3 @@
-FROM centos:latest
-RUN useradd artak
-RUN echo "artak:artak123" | chpasswd
+FROM centos:7
+RUN touch /testfile
 
