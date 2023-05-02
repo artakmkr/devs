@@ -1,3 +1,3 @@
 FROM rockylinux:8
-RUN yum install stress-ng -y
+RUN yum install stress-ng procps-ng -y
 
