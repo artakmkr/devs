@@ -19,3 +19,26 @@ spec:
       devicePaths: 
         - /dev/vdb
 
+---
+ 
+apiVersion: "local.storage.openshift.io/v1"
+kind: "LocalVolume"
+metadata:
+  name: "local-disks-vdc"
+  namespace: "openshift-local-storage"
+spec:
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - worker0.ocp4.local.net
+          - worker1.ocp4.local.net
+          - worker2.ocp4.local.net
+  storageClassDevices:
+    - storageClassName: "local-vdc"
+      volumeMode: Filesystem
+      devicePaths:
+        - /dev/vdc
+
