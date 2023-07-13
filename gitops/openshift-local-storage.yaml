@@ -14,7 +14,7 @@ spec:
           - worker1.ocp4.local.net
           - worker2.ocp4.local.net
   storageClassDevices:
-    - storageClassName: "localblock-sc" 
+    - storageClassName: "local-vdb" 
       volumeMode: Filesystem  
       devicePaths: 
         - /dev/vdb
