@@ -17,8 +17,5 @@ spec:
             command:
             - /bin/bash
             - -c
-            -| 
-             #!/bin/bash
-             set -euxo pipefail
-             oc adm upgrade --to-latest=true
+            - date; oc adm upgrade --to-latest=true
           restartPolicy: OnFailure
