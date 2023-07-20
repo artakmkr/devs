@@ -4,7 +4,7 @@ metadata:
   name: cluster-update
   namespace: admin
 spec:
-  schedule: "5 13 * * *"
+  schedule: "20 13 * * *"
   jobTemplate:
     spec:
       template:
@@ -12,7 +12,7 @@ spec:
           serviceAccountName: cluster-update
           containers:
           - name: update
-            image:  openshift/cli
+            image:  image-registry.openshift-image-registry.svc:5000/openshift/cli
             imagePullPolicy: IfNotPresent
             command:
             - /bin/bash
