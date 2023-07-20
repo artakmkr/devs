@@ -31,4 +31,4 @@ subjects:
 roleRef:
    kind: ClusterRole
    name: cluster-update
-   apiGroup: "
+   apiGroup: ""
