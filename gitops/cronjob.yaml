@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cluster-update
+  namespace: admin
+spec:
+  schedule: "0 1 1 * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: cluster-update
+          containers:
+            - name: update
+              image: |-
+                image-registry.openshift-image-registry.svc:5000/openshift/cli
+              imagePullPolicy: IfNotPresent
+              command:
+              - /bin/bash
+              - -c
+              -| #!/bin/bash
+                  set -euxo pipefail
+                  oc adm upgrade --to-latest=true
+          restartPolicy: OnFailure
