@@ -11,11 +11,11 @@ spec:
         spec:
           serviceAccountName: cluster-update
           containers:
-            - name: update
-              image: |-
+          - name: update
+            image: |-
                 image-registry.openshift-image-registry.svc:5000/openshift/cli
-              imagePullPolicy: IfNotPresent
-              command:
+            imagePullPolicy: IfNotPresent
+            command:
               - /bin/bash
               - -c
               -| #!/bin/bash
