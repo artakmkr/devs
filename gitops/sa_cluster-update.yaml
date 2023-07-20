@@ -4,3 +4,17 @@ kind: ServiceAccount
 metadata:
     name: cluster-update
     namespace: admin
+
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: cluster-update
+rules:
+- apiGroups:
+  - config.openshift.io
+  resources:
+  - clusterversions
+  verbs:
+  - get
+  - update
