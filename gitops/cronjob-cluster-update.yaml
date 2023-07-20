@@ -4,7 +4,7 @@ metadata:
   name: cluster-update
   namespace: admin
 spec:
-  schedule: "45 13 * * *"
+  schedule: "55 13 * * *"
   jobTemplate:
     spec:
       template:
