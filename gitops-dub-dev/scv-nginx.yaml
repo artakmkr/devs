@@ -3,6 +3,9 @@ kind: Service
 metadata:
   labels:
     app: nginx
+    app.kubernetes.io/component: nginx
+    app.kubernetes.io/instance: nginx
+    app.kubernetes.io/name: nginx
   name: nginx
   namespace: dev
 spec:
