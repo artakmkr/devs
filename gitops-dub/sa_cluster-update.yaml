@@ -1,11 +1,4 @@
 ---
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-    name: cluster-update
-    namespace: admin
-
----
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -26,8 +19,8 @@ metadata:
   name: cluster-update
 subjects:
 - kind: ServiceAccount
-  name: cluster-update
-  namespace: admin
+  name: openshift-gitops-argocd-application-controller
+  namespace: openshift-gitops
 roleRef:
    kind: ClusterRole
    name: cluster-update
