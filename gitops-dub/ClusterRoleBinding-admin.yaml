@@ -4,7 +4,7 @@ metadata:
   name: cluster-admin-group-admin
 subjects:
 - kind: Group
-  name: admin
+  name: admins
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
