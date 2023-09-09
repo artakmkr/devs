@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: httpd                                        
+  namespace: dev                        
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging          
+    acme.cert-manager.io/http01-ingress-class: openshift-default 
+spec:
+  ingressClassName: openshift-default                            
+  tls:
+  - hosts:
+    - httpd-dev.apps.dub.idiro.com              
+    secretName: httpd-tls      ## secret will be created for this host                                 
+  rules:
+  - host: httpd-dev.apps.dub.idiro.com                                            
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: httpd                                
+            port:
+              number: 8080
