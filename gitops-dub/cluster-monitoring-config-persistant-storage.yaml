@@ -5,7 +5,7 @@ metadata:
   namespace: openshift-monitoring
 data:
   config.yaml: |
-    enableUserWorkload: true
+    enableUserWorkload: false
     prometheusK8s: 
       retention: "7d"
       volumeClaimTemplate:
