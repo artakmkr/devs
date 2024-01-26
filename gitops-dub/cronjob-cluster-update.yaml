@@ -4,7 +4,7 @@ metadata:
   name: cluster-update
   namespace: openshift-gitops
 spec:
-  schedule: "00 01 * * *"
+  schedule: "00 00 12 12 *"
   jobTemplate:
     spec:
       template:
