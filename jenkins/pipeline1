@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh ("kubectl --kubeconfig $MY_KUBECONFIG get pods")
+                sh ("kubectl --kubeconfig $MY_KUBECONFIG get nodes")
             }
         }
         stage('Deploy') {
