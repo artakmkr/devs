@@ -5,7 +5,7 @@ pipeline {
       REGISTRY_URL = "registry.apps.ocp45.lab.kx.com"
       IMAGE_NAME    = "amkrtichyan/rockylinux"
       IMAGE_TAG     = "aws"
-      NEXUS_CREDS = credentials('nexus-credentials-id') 
+      NEXUS_CREDS = credentials('nexus-registry-creds') 
     }
     stages {
         stage('Build') {
