@@ -2,7 +2,8 @@ pipeline {
     agent { label 'agent-ssh' }
     environment {
       MY_KUBECONFIG = credentials('ocp46')
-      IMAGE_NAME    = "rockylinux"
+      REGISTRY_URL = "registry.apps.ocp45.lab.kx.com"
+      IMAGE_NAME    = "amkrtichyan/rockylinux"
       IMAGE_TAG     = "aws"
       
     }
@@ -12,7 +13,7 @@ pipeline {
               script {
                 sh "id"
                 sh """
-                podman build -t $IMAGE_NAME:$IMAGE_TAG rockylinux/
+                podman build -t $REGISTRY_URL/$IMAGE_NAME:$IMAGE_TAG rockylinux/
                 """
               }
             }
