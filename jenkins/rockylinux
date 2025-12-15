@@ -35,9 +35,10 @@ pipeline {
 	    }
 	}
 
-	stage('Test') {
+	stage('Push the Image') {
 	    steps {
-		echo 'Testing..'
+		echo 'Pushing..'
+                sh ("podman push $REGISTRY_URL/$IMAGE_NAME:$IMAGE_TAG")
 	    }
 	}
 	stage('Deploy') {
