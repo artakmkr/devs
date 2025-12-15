@@ -5,7 +5,7 @@ pipeline {
       REGISTRY_URL = "registry.apps.ocp45.lab.kx.com"
       IMAGE_NAME    = "amkrtichyan/rockylinux"
       IMAGE_TAG     = "aws"
-      
+      NEXUS_CREDS = credentials('nexus-credentials-id') 
     }
     stages {
         stage('Build') {
@@ -21,23 +21,12 @@ pipeline {
 
 	stage('Login to Registry') {
 	    steps {
-		script {
-		    withCredentials([usernamePassword(
-			credentialsId: 'nexus-registry-creds', 
-			usernameVariable: 'REG_USER',
-			passwordVariable: 'REG_PASS'
-		    )]) {
-			sh """
-			echo "$REG_PASS" | podman login $REGISTRY_URL -u "$REG_USER" --password-stdin
-			"""
-		    }
-		}
+                sh('podman login $REGISTRY_URL -u $NEXUS_CREDS_USR -p $NEXUS_CREDS_PSW')     
 	    }
 	}
 
 	stage('Push the Image') {
 	    steps {
-		echo 'Pushing..'
                 sh ("podman push $REGISTRY_URL/$IMAGE_NAME:$IMAGE_TAG")
 	    }
 	}
