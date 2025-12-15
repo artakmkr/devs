@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environment {
+      MY_KUBECONFIG = credentials('ocp46')
+      IMAGE_NAME    = rockylinux
+      IMAGE_TAG     = aws
+      
+    }
+    stages {
+        stage('Build') {
+            steps {
+              script {
+                sh """
+                docker build -t $IMAGE_NAME:$IMAGE_TAG rockylinux/
+                """
+              }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
