@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-   name: rocky
-spec:
-   containers:
-   - name: rocky-container01
-     image: image-registry.openshift-image-registry.svc:5000/dev/rockylinux:8
-     command: ["/bin/sleep", "350d"]

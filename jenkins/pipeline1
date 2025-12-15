@@ -1,0 +1,23 @@
+pipeline {
+    agent { label 'agent-ssh' }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'hostname'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh 'id'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
