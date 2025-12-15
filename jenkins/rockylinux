@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'agent-ssh' }
     environment {
       MY_KUBECONFIG = credentials('ocp46')
       IMAGE_NAME    = "rockylinux"
