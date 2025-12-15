@@ -12,7 +12,7 @@ pipeline {
               script {
                 sh "id"
                 sh """
-                docker build -t $IMAGE_NAME:$IMAGE_TAG rockylinux/
+                podman build -t $IMAGE_NAME:$IMAGE_TAG rockylinux/
                 """
               }
             }
